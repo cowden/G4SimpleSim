@@ -1,0 +1,61 @@
+# Macro file for example B4
+# 
+# To be run preferably in batch, without graphics:
+# % exampleB4[a,b,c,d] run2.mac
+#
+#/run/numberOfThreads 4
+#/control/cout/ignoreThreadsExcept 0
+#
+
+
+#########
+# Setup Run 0
+# define the geometry
+/det/nLayers 100
+/det/width 200 cm
+
+# set the random seed
+/trm/seed 43
+
+# set the output file name
+/runaction/fileName B4_r0.csv
+
+#
+# initialize the run
+/run/initialize
+
+# set the primary generator
+/gun/particle pi-
+/gun/energy 500 GeV
+
+
+/run/beamOn 10000
+
+
+##########
+# Setup Run 1
+/det/nLayers 75
+/det/width 200 cm
+/det/refresh
+
+/trm/seed 101
+/runaction/fileName B4_r1.csv
+/run/initialize
+/gun/particle pi-
+/gun/energy 500 GeV
+/run/beamOn 10000
+
+
+
+##########
+# Setup Run 2
+/det/nLayers 50
+/det/width 200 cm
+/det/refresh
+
+/trm/seed 24
+/runaction/fileName B4_r2.csv
+/run/initialize
+/gun/particle pi-
+/gun/energy 500 GeV
+/run/beamOn 10000

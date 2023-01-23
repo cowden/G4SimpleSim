@@ -73,7 +73,7 @@ RunAction::RunAction()
 
   // Creating ntuple
   //
-  analysisManager->CreateNtuple("B4", "Edep and TrackL");
+  analysisManager->CreateNtuple("B4tub", "Edep and TrackL");
   analysisManager->CreateNtupleDColumn("Eabs");
   analysisManager->CreateNtupleDColumn("Egap");
   analysisManager->CreateNtupleDColumn("Ebeam");

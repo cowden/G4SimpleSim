@@ -32,7 +32,7 @@
 #include "G4RunManager.hh"
 #include "G4LogicalVolumeStore.hh"
 #include "G4LogicalVolume.hh"
-#include "G4Box.hh"
+#include "G4Tubs.hh"
 #include "G4Event.hh"
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
@@ -80,9 +80,9 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   auto worldLV = G4LogicalVolumeStore::GetInstance()->GetVolume("World");
 
   // Check that the world volume has box shape
-  G4Box* worldBox = nullptr;
+  G4Tubs* worldBox = nullptr;
   if (  worldLV ) {
-    worldBox = dynamic_cast<G4Box*>(worldLV->GetSolid());
+    worldBox = dynamic_cast<G4Tubs*>(worldLV->GetSolid());
   }
 
   if ( worldBox ) {

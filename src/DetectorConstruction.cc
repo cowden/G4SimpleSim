@@ -33,7 +33,7 @@
 #include "G4NistManager.hh"
 #include "G4RunManager.hh"
 
-#include "G4Box.hh"
+#include "G4Tubs.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4PVReplica.hh"
@@ -163,8 +163,9 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // World
   //
   worldS_
-    = new G4Box("World",           // its name
-                 worldSizeXY/2, worldSizeXY/2, worldSizeZ/2); // its size
+    = new G4Tubs("World", 
+                 0., worldSizeXY/2, worldSizeZ/2,
+                 0, twopi);
 
   worldLV_
     = new G4LogicalVolume(
@@ -187,8 +188,9 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // Calorimeter
   //
   calorimeterS_
-    = new G4Box("Calorimeter",     // its name
-                 calorSizeXY/2, calorSizeXY/2, calorThickness/2); // its size
+    = new G4Tubs("Calorimeter",
+                 0, calorSizeXY/2, calorThickness/2,
+                 0, twopi);
 
   calorLV_
     = new G4LogicalVolume(
@@ -210,8 +212,9 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // Layer
   //
   layerS_
-    = new G4Box("Layer",           // its name
-                 calorSizeXY/2, calorSizeXY/2, layerThickness/2); //its size
+    = new G4Tubs("Layer",           // its name
+                 0, calorSizeXY/2, layerThickness/2,
+                 0, twopi); //its size
 
   layerLV_
     = new G4LogicalVolume(
@@ -231,8 +234,9 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // Absorber
   //
   absorberS_
-    = new G4Box("Abso",            // its name
-                 calorSizeXY/2, calorSizeXY/2, absoThickness/2); // its size
+    = new G4Tubs("Abso",            // its name
+                 0, calorSizeXY/2, absoThickness/2,
+                 0, twopi); // its size
 
   absorberLV_
     = new G4LogicalVolume(
@@ -254,8 +258,9 @@ G4VPhysicalVolume* DetectorConstruction::DefineVolumes()
   // Gap
   //
   gapS_
-    = new G4Box("Gap",             // its name
-                 calorSizeXY/2, calorSizeXY/2, gapThickness/2); // its size
+    = new G4Tubs("Gap",             // its name
+                 0, calorSizeXY/2, gapThickness/2,
+                 0, twopi); // its size
 
   gapLV_
     = new G4LogicalVolume(

@@ -35,7 +35,7 @@
 
 class G4VPhysicalVolume;
 class G4GlobalMagFieldMessenger;
-class G4Box;
+class G4Tubs;
 class G4PVReplica;
 class G4LogicalVolume;
 
@@ -100,23 +100,23 @@ class DetectorConstruction : public G4VUserDetectorConstruction
     G4int  fNofLayers = -1;     // number of layers
     G4double fWidth;
 
-    G4Box * worldS_;
+    G4Tubs * worldS_;
     G4LogicalVolume * worldLV_;
     G4VPhysicalVolume * worldPV_;
 
-    G4Box * calorimeterS_;
+    G4Tubs * calorimeterS_;
     G4LogicalVolume * calorLV_;
     G4VPhysicalVolume * calorPV_;
 
-    G4Box * layerS_;
+    G4Tubs * layerS_;
     G4LogicalVolume * layerLV_;
     G4PVReplica * layerPV_;
 
-    G4Box * absorberS_;
+    G4Tubs * absorberS_;
     G4LogicalVolume * absorberLV_;
     G4VPhysicalVolume * absorberPV_;
 
-    G4Box * gapS_;
+    G4Tubs * gapS_;
     G4LogicalVolume * gapLV_;
     G4VPhysicalVolume * gapPV_;
 

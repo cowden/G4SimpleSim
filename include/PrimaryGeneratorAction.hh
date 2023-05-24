@@ -32,6 +32,7 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 #include "globals.hh"
+#include "CLHEP/Random/Random.h"
 
 class G4ParticleGun;
 class G4Event;
@@ -59,6 +60,9 @@ public:
 
 private:
   G4ParticleGun* fParticleGun = nullptr; // G4 particle gun
+
+  CLHEP::HepRandom ran1;
+  G4double Ebeam;
 };
 
 }

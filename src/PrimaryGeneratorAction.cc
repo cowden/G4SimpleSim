@@ -57,6 +57,8 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
   fParticleGun->SetParticleDefinition(particleDefinition);
   fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
   fParticleGun->SetParticleEnergy(50.*MeV);
+
+  Ebeam = -1;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -101,7 +103,14 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   fParticleGun
     ->SetParticlePosition(G4ThreeVector(0., 0., -worldZHalfLength));
 
+  // scan energy range instead of fixed energy study
+  if ( Ebeam < 0. ) Ebeam = fParticleGun->GetParticleEnergy();
+  auto t = ran1.flat(); // the first draw is needed for some reason
+  G4double gunEnergyEvent_ = (500.+ran1.flat()*(Ebeam-500.))*MeV;
+  fParticleGun->SetParticleEnergy(gunEnergyEvent_);
+
   fParticleGun->GeneratePrimaryVertex(anEvent);
+
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

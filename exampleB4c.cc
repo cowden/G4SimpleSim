@@ -94,6 +94,9 @@ int main(int argc,char** argv)
     ui = new G4UIExecutive(argc, argv, session);
   }
 
+  // Choose the random engine
+  G4Random::setTheEngine(new CLHEP::RanecuEngine);
+
   // Use G4SteppingVerboseWithUnits
   if ( verboseBestUnits ) {
     G4int precision = 4;

@@ -3,19 +3,10 @@ Geant4 Simple Simulation
 Simple simulation scenarios.
 
 
-Setup
------
+* base - a basic sampling calorimeter based on the B4 example included
+in the Geant4 distribution.
+* fiber - simulate the cherenkov light signal received at the end of a
+quartz fiber when a charged particle traveres it.
 
-Use ``cmake`` and ``make`` to build this executable.
-.. ::
-    cmake G4SimpleSim -B sim
-    cd sim
-    make
-
-
-To build with debug symbols,
-.. ::
-    cmake -DCMAKE_BUILD_TYPE=Debug .
-    make clean install
 
 

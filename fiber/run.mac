@@ -1,0 +1,5 @@
+
+/runaction/fileName fib_r0.csv
+
+/run/initialize
+/run/beamOn 100

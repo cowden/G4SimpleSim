@@ -275,9 +275,9 @@ void fib::DetectorConstruction::ConstructSDandField()
     // 
     // Sensitive detectors
     //
-    glassSD_ = new fib::GlassSD("GlassSD", "GlassHitsCollection");
-    G4SDManager::GetSDMpointer()->AddNewDetector(glassSD_);
-    SetSensitiveDetector("Glass", glassSD_);
+    //glassSD_ = new fib::GlassSD("GlassSD", "GlassHitsCollection");
+    //G4SDManager::GetSDMpointer()->AddNewDetector(glassSD_);
+    //SetSensitiveDetector("Glass", glassSD_);
 }
 
 void fib::DetectorConstruction::ClearPhysicalVolumes()

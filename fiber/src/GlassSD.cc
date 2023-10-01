@@ -7,6 +7,9 @@
 #include "G4ios.hh"
 #include "G4OpticalPhoton.hh"
 
+#include "G4VProcess.hh"
+#include "G4Track.hh"
+
 fib::GlassSD::GlassSD(const G4String& name, const G4String& hitsCollectionName)
 :G4VSensitiveDetector(name)
 {
@@ -32,10 +35,13 @@ G4bool fib::GlassSD::ProcessHits(G4Step* step, G4TouchableHistory*)
         return false;
 
     auto touchable = step->GetPostStepPoint()->GetTouchable();
+    auto vol1 = step->GetPreStepPoint()->GetPhysicalVolume();
 
-    DetectedPhotonHit * hit = new DetectedPhotonHit(step->GetPreStepPoint()->GetGlobalTime());
+    if ( step->IsFirstStepInVolume() ) {
+        DetectedPhotonHit * hit = new DetectedPhotonHit(step->GetPreStepPoint()->GetGlobalTime());
+        hitsCollection_->insert(hit);
+    }
 
-    hitsCollection_->insert(hit);
     
     return true;
 }

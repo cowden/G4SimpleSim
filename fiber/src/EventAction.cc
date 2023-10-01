@@ -35,7 +35,7 @@ void fib::EventAction::EndOfEventAction(const G4Event * event)
     auto hc = static_cast<DetPhoHitsCollection*>(event->GetHCofThisEvent()->GetHC(hcid)); 
     for ( unsigned i=0; i != hc->GetSize(); i++ ) {
         auto hit = (*hc)[i];
-        analysisManager->FillNtupleDColumn(0, hit->GetTime() );
-        analysisManager->AddNtupleRow();
+        analysisManager->FillNtupleDColumn(0, 0, hit->GetTime() );
+        analysisManager->AddNtupleRow(0);
     }
 }

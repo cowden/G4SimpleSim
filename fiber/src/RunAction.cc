@@ -28,8 +28,22 @@ fib::RunAction::RunAction()
 
   // Creating ntuple
   //
-  analysisManager->CreateNtuple("fib", "photons");
-  analysisManager->CreateNtupleDColumn("nPhotons");
+  //analysisManager->CreateNtuple("fib", "photons");
+  //analysisManager->CreateNtupleDColumn("time");
+  //analysisManager->FinishNtuple();
+
+  // create ntuple of created photons in quartz
+  //
+  analysisManager->CreateNtuple("quartz","photons");
+  analysisManager->CreateNtupleDColumn("time");
+  analysisManager->CreateNtupleDColumn("z");
+  analysisManager->FinishNtuple();
+
+  // create ntuple of photons crossing into pmt
+  //
+  analysisManager->CreateNtuple("pmt", "photons");
+  analysisManager->CreateNtupleIColumn("event");
+  analysisManager->CreateNtupleDColumn("time");
   analysisManager->FinishNtuple();
 }
 

@@ -40,7 +40,7 @@ void fib::PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
   G4Tubs * worldtub = dynamic_cast<G4Tubs*>(worldLV->GetSolid());
   G4double c_ = worldtub->GetOuterRadius();
 
-  G4cout << "  ParticleGun angle: " << a_ << " impact paramter: " << b_ << G4endl;
+  G4cout << "  ParticleGun angle: " << a_ << " impact parameter: " << b_ << G4endl;
 
    particleGun_->SetParticleMomentumDirection(G4ThreeVector(0., sin(a_), cos(a_)));
    particleGun_->SetParticlePosition(G4ThreeVector(b_, -c_, -c_/tan(a_)));

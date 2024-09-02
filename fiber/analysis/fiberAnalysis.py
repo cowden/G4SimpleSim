@@ -78,6 +78,7 @@ def docker(alpha, b, mac=None, filename=None):
 
     with open("/home/me/proj/CaloX/calo-cali-lss/sim/fiber/scripts/"+mac, "w") as f:
        f.write(f"/runaction/fileName {filename}\n")
+       f.write(f"/det/nClad 1.4\n")
        f.write(f"/run/initialize\n")
        f.write(f"/pg/impact {b} mm\n")
        f.write(f"/pg/alpha {alpha}\n")
